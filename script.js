@@ -19,7 +19,8 @@ function timer1PerSecond() {
 	}, 1000);
 }
 
-// include, *same-origin, omit
+// https://javascript.info/fetch-api
+
 var sendScoreUrl = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score;
 
 function apiSend(request) {
