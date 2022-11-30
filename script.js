@@ -2,7 +2,8 @@ var buttonEL = document.getElementById("mainButton");
 var scoreEl = document.getElementById("score");
 var buttonArea = document.getElementById("buttonArea");
 
-var score = 0;
+var userId = localStorage.getItem("userId") || '';
+var score = +localStorage.getItem("score") || 0;
 
 function timer1PerSecond() {
 	var timer = setInterval(function() 
@@ -21,26 +22,24 @@ function timer1PerSecond() {
 
 // https://javascript.info/fetch-api
 
-var sendScoreUrl = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score;
+var sendScoreUrl = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId;
+
 
 function apiSend(request) {
-	fetch(request, {
-		method: 'GET', //GET is the default.\
-		mode: 'no-cors',
-		credentials: 'omit', // include, *same-origin, omit
-		redirect: 'follow', // manual, *follow, error
-	  })
-	.then(function (response) {
-		if(response.status !== 200)
+	fetch(request)
+	.then(response => response.text())
+	.then((response) => {
+		console.log(response);
+		if(response.trim() != 'OK') 
 		{
-			return;
+			localStorage.setItem("userId", response.trim());
 		}
-
-		return response;
+		localStorage.setItem("score", score);
 	})
-	.then(function (response) {
-	   console.log(response);
-	});
+
+// https://stackoverflow.com/questions/41946457/getting-text-from-fetch-response-object
+
+
 }
 
 
@@ -56,6 +55,7 @@ buttonEL.addEventListener	(
 
 function setScoreText() {
 	scoreEl.textContent = score;
+	localStorage.setItem("score", score);
 }
 
 apiSend(sendScoreUrl);
