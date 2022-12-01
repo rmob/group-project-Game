@@ -4,17 +4,20 @@ var scoreEl = document.getElementById("score");
 var buttonArea = document.getElementById("buttonArea");
 var countDownEl = document.getElementById("countDown");
 var personalHighScoreEl = document.getElementById("personalHighScore");
+var leaderboardEl = document.getElementById("leaderboard");
+var submitEl = document.getElementById("submit");
+var userNameEl = document.getElementById("userName");
 
 var userId = localStorage.getItem("userId") || '';
 var score = 0;
-var userName = "";
 
-var EnterScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId + '&Username=' + userName;
-var GetScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=GetScore&userID=' + userId;
 var GetLeaderboard = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=GetLeaderboard';
-var CheckID = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=CheckID&userID=' + userId;
+apiSend('GetLeaderboard',GetLeaderboard);
 
+var CheckID = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=CheckID&userID=' + userId;
 apiSend("CheckID", CheckID);
+
+var GetScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=GetScore&userID=' + userId;
 apiSend('GetScore',GetScore);
 var personalHighScore = +localStorage.getItem("personalHighScore");
 
@@ -28,45 +31,58 @@ var timer4Active = 0;
 var timer5Active = 0;
 var timer6Active = 0;
 var timer7Active = 0;
-
+var timer8Active = 0;
+var timer9Active = 0;
+var timer10Active = 0;
+var timer11Active = 0;
 
 countDownEl.textContent = "We will be starting when you first press the button";
 
 
-function startCountdown(){var countDownTimer=setInterval(function()
+function startCountdown()
 	{
+		if(firstPress == 0)
 		{
-			firstPress = 1;
-
-			if (countDown > 0) 
+			var countDownTimer=setInterval(function()
+			{
 				{
-					countDown = countDown - 1;
-					countDownEl.textContent = "You have " + countDown + " seconds left.";
+					if (countDown > 0) 
+						{
+							countDown = countDown - 1;
+							countDownEl.textContent = "You have " + countDown + " seconds left.";
+						}
+					else
+						{
+							clearInterval(countDownTimer);
+							clearTimers();
+							buttonEL.disabled = true;
+							buttonArea.style.visibility = 'hidden';
+							countDownEl.textContent = "Congrats! You have gotten a score of " + score + ". Please enter your name and submit it.";
+							if(personalHighScore < score)
+							{
+								localStorage.setItem("personalHighScore", score);
+								personalHighScoreEl.textContent = "Personal High Score: " + score;
+							}
+		// show name field and submit button. On submit button, submit it to the high score.
+						}
 				}
-			else
-				{
-					clearInterval(countDownTimer);
-					countDownEl.textContent = "Congrats! You have gotten a score of " + score + ". Please enter your name and submit it.";
-					if(personalHighScore < score)
-					{
-						localStorage.setItem("personalHighScore", score);
-						
-
-					}
-// show name field and submit button. On submit button, submit it to the high score.
-				}
-		}
-	}, 1000)
-};
+			}, 1000)
+		};
+		firstPress = 1;
+	}
 
 
-function timer1PerSecond(){var timer1=setInterval(function(){score=score+1;checkScore()}, 1000);}
-function timer5PerSecond(){var timer2=setInterval(function(){score=score+1;checkScore()}, 500);}
-function timer10PerSecond(){var timer3=setInterval(function(){score=score+1;checkScore()}, 100);}
-function timer50PerSecond(){var timer4=setInterval(function(){score=score+1;checkScore()}, 50);}
-function timer100PerSecond(){var timer5=setInterval(function(){score=score+1;checkScore()}, 10);}
-function timer500PerSecond(){var timer6=setInterval(function(){score=score+1;checkScore()}, 5);}
-function timer1000PerSecond(){var timer7=setInterval(function(){score=score+1;checkScore()}, 1);}
+function timer1(){var timer1=setInterval(function(){score=score+1;checkScore()}, 1000);}
+function timer2(){var timer2=setInterval(function(){score=score+1;checkScore()}, 500);}
+function timer3(){var timer3=setInterval(function(){score=score+1;checkScore()}, 100);}
+function timer4(){var timer4=setInterval(function(){score=score+1;checkScore()}, 50);}
+function timer5(){var timer5=setInterval(function(){score=score+1;checkScore()}, 10);}
+function timer6(){var timer6=setInterval(function(){score=score+1;checkScore()}, 5);}
+function timer7(){var timer7=setInterval(function(){score=score+1;checkScore()}, 1);}
+function timer8(){var timer8=setInterval(function(){score=score+5;checkScore()}, 1);}
+function timer9(){var timer9=setInterval(function(){score=score+10;checkScore()}, 1);}
+function timer10(){var timer10=setInterval(function(){score=score+50;checkScore()}, 1);}
+function timer11(){var timer11=setInterval(function(){score=score+100;checkScore()}, 1);}
 
 function clearTimers() 
 	{
@@ -79,6 +95,10 @@ function clearTimers()
 		if(timer5Active == 1){clearInterval(5);timer5Active = 0;}
 		if(timer6Active == 1){clearInterval(6);timer6Active = 0;}
 		if(timer7Active == 1){clearInterval(7);timer7Active = 0;}
+		if(timer8Active == 1){clearInterval(8);timer8Active = 0;}
+		if(timer9Active == 1){clearInterval(9);timer9Active = 0;}
+		if(timer10Active == 1){clearInterval(10);timer10Active = 0;}
+		if(timer11Active == 1){clearInterval(11);timer11Active = 0;}
 
 		buttonEL.textContent = score;
 
@@ -89,6 +109,7 @@ function clearTimers()
 function checkScore() 
 	{
 		buttonEL.textContent = score;
+		localStorage.setItem("score", score);
 
 		if(score == 11 && timer1Active == 0)
 			{
@@ -97,7 +118,7 @@ function checkScore()
 			button1.classList.add("storeButton");
 			button1.setAttribute('ID','storeButton-1');
 			buttonArea.appendChild(button1);
-			button1.addEventListener('click', function(){timer1PerSecond();button1.remove()});
+			button1.addEventListener('click', function(){timer1();button1.remove()});
 			timer1Active = 1;
 			}
 
@@ -108,7 +129,7 @@ function checkScore()
 			button2.classList.add("storeButton");
 			button2.setAttribute('ID','storeButton-2');
 			buttonArea.appendChild(button2);
-			button2.addEventListener('click', function(){timer5PerSecond();button2.remove()});
+			button2.addEventListener('click', function(){timer2();button2.remove()});
 			timer2Active = 1;
 			}
 
@@ -119,7 +140,7 @@ function checkScore()
 			button3.classList.add("storeButton");
 			button3.setAttribute('ID','storeButton-3');
 			buttonArea.appendChild(button3);
-			button3.addEventListener('click', function(){timer10PerSecond();button3.remove()});
+			button3.addEventListener('click', function(){timer3();button3.remove()});
 			timer3Active = 1;
 			}
 
@@ -130,7 +151,7 @@ function checkScore()
 			button4.classList.add("storeButton");
 			button4.setAttribute('ID','storeButton-4');
 			buttonArea.appendChild(button4);
-			button4.addEventListener('click', function(){timer50PerSecond();button4.remove()});
+			button4.addEventListener('click', function(){timer4();button4.remove()});
 			timer4Active = 1;
 			}
 
@@ -141,7 +162,7 @@ function checkScore()
 			button5.classList.add("storeButton");
 			button5.setAttribute('ID','storeButton-5');
 			buttonArea.appendChild(button5);
-			button5.addEventListener('click', function(){timer100PerSecond();button5.remove()});
+			button5.addEventListener('click', function(){timer5();button5.remove()});
 			timer5Active = 1;
 			}
 
@@ -152,19 +173,63 @@ function checkScore()
 			button6.classList.add("storeButton");
 			button6.setAttribute('ID','storeButton-6');
 			buttonArea.appendChild(button6);
-			button6.addEventListener('click', function(){timer500PerSecond();button6.remove()});
+			button6.addEventListener('click', function(){timer6();button6.remove()});
 			timer6Active = 1;
 			}
 
 		if(score == 17 && timer7Active == 0)
 			{
 			var button7 = document.createElement('button');
-			button7.innerHTML = '1000 clicks per second';
+			button7.innerHTML = '1,000 clicks per second';
 			button7.classList.add("storeButton");
 			button7.setAttribute('ID','storeButton-7');
 			buttonArea.appendChild(button7);
-			button7.addEventListener('click', function(){timer1000PerSecond();button7.remove()});
+			button7.addEventListener('click', function(){timer7();button7.remove()});
 			timer7Active = 1;
+			}
+
+		if(score == 17 && timer8Active == 0)
+			{
+			var button8 = document.createElement('button');
+			button8.innerHTML = '5,000 clicks per second';
+			button8.classList.add("storeButton");
+			button8.setAttribute('ID','storeButton-8');
+			buttonArea.appendChild(button8);
+			button8.addEventListener('click', function(){timer8();button8.remove()});
+			timer8Active = 1;
+			}
+
+		if(score == 17 && timer9Active == 0)
+			{
+			var button9 = document.createElement('button');
+			button9.innerHTML = '10,000 clicks per second';
+			button9.classList.add("storeButton");
+			button9.setAttribute('ID','storeButton-9');
+			buttonArea.appendChild(button9);
+			button9.addEventListener('click', function(){timer9();button9.remove()});
+			timer9Active = 1;
+			}
+
+		if(score == 17 && timer10Active == 0)
+			{
+			var button10 = document.createElement('button');
+			button10.innerHTML = '50,000 clicks per second';
+			button10.classList.add("storeButton");
+			button10.setAttribute('ID','storeButton-10');
+			buttonArea.appendChild(button10);
+			button10.addEventListener('click', function(){timer10();button10.remove()});
+			timer10Active = 1;
+			}
+
+		if(score == 17 && timer11Active == 0)
+			{
+			var button11 = document.createElement('button');
+			button11.innerHTML = '100,000 clicks per second';
+			button11.classList.add("storeButton");
+			button11.setAttribute('ID','storeButton-11');
+			buttonArea.appendChild(button11);
+			button11.addEventListener('click', function(){timer11();button11.remove()});
+			timer11Active = 1;
 			}
 
 	}
@@ -183,16 +248,14 @@ function apiSend(namedrequest, request) {
 				{
 					localStorage.setItem("userId", response.trim());
 				}
-
 				break;
 
 			case 'GetLeaderboard':
-	
+				leaderboardEl.textContent = response.trim();
 				break;
 			case 'GetScore':
-				localStorage.setItem("score", response.trim());
-				personalHighScoreEl.textContent = "Personal High Score: " + personalHighScore;
-
+				localStorage.setItem("personalHighScore", response.trim());
+				personalHighScoreEl.textContent = "Personal High Score: " + response.trim();
 				break;
 
 			case 'EnterScore':
@@ -220,19 +283,26 @@ buttonEL.addEventListener	(
 resetEL.addEventListener	(
 	'click', function()
 	{
-		resetGame();
+		score = 0;
+		buttonEL.textContent = score;
+		localStorage.setItem("score", score);
+		clearTimers();
 	}
 );
 
-function resetGame() {
-	score = 0;
-	buttonEL.textContent = score;
-	clearTimers();
-}
+
+submitEl.addEventListener	(
+	'click', function()
+	{
+		var EnterScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId + '&Username=' + userNameEl.value;
+		apiSend("EnterScore", EnterScore);
+			
+	}
+);
+
 
 
 
 buttonEL.textContent = score;
 clearTimers();
 
-//apiSend(GetLeaderboard);
