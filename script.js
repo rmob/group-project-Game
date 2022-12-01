@@ -17,34 +17,19 @@ function timer1000PerSecond() {var timer7 = setInterval(function(){score = score
 
 function clearTimers() {for(i=1;i <= 7;i=i+1) {clearInterval('timer' + i);}}
 
+
 function checkScore() {
-	if(score % 10)
-		{
-			newButtonGenerate('1 Click per second');
-		}
 
-	}
-
-function newButtonGenerate() {
-
-			
-			// creating button element
-			var button = document.createElement('button');
-
-			button.innerHTML = '1 Click per second';
-
-			button.classList.add("storeButton");
-			button.setAttribute('ID',score);
-				
-			// appending button to div
-			buttonArea.appendChild(button);
-
-//			element.addEventListener("click", function() {
-//				document.getElementById(cost).innerHTML = "Hello World";
-//			  });
-
+		if(score == 10)
+			{
+			var button1 = document.createElement('button');
+			button1.innerHTML = '1 Click per second';
+			button1.classList.add("storeButton");
+			button1.setAttribute('ID',1);
+			buttonArea.appendChild(button1);
+			button1.addEventListener('click', function(){timer1PerSecond()});
+			}
 }
-
 
 
 function apiSend(request) {
