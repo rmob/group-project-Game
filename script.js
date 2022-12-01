@@ -19,6 +19,33 @@ function timer1PerSecond() {
 	}, 1000);
 }
 
+// https://javascript.info/fetch-api
+
+var sendScoreUrl = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score;
+
+function apiSend(request) {
+	fetch(request, {
+		method: 'GET', //GET is the default.\
+		mode: 'no-cors',
+		credentials: 'omit', // include, *same-origin, omit
+		redirect: 'follow', // manual, *follow, error
+	  })
+	.then(function (response) {
+		if(response.status !== 200)
+		{
+			return;
+		}
+
+		return response;
+	})
+	.then(function (response) {
+	   console.log(response);
+	});
+}
+
+
+
+
 buttonEL.addEventListener	(
 	'click', function()
 	{
@@ -28,6 +55,7 @@ buttonEL.addEventListener	(
 );
 
 function setScoreText() {
-
 	scoreEl.textContent = score;
 }
+
+apiSend(sendScoreUrl);
