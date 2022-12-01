@@ -18,12 +18,6 @@ function timer1000PerSecond() {var timer7 = setInterval(function(){score = score
 
 function clearTimers() {for(i=1;i <= 7;i=i+1) {clearInterval('timer' + i);}}
 
-function resetGame() {
-	score = 0;
-	setScoreText();
-	clearTimers();
-}
-
 function checkScore() {
 
 		if(score == 10)
@@ -68,6 +62,12 @@ resetEL.addEventListener	(
 		resetGame();
 	}
 );
+
+function resetGame() {
+	score = 0;
+	setScoreText();
+	clearTimers();
+}
 
 function setScoreText() {
 	buttonEL.textContent = score;
