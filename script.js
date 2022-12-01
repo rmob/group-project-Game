@@ -16,7 +16,17 @@ function timer100PerSecond() {var timer5 = setInterval(function(){score = score 
 function timer500PerSecond() {var timer6 = setInterval(function(){score = score + 1;setScoreText();checkScore();}, 5);}
 function timer1000PerSecond() {var timer7 = setInterval(function(){score = score + 1;setScoreText();checkScore();}, 1);}
 
-function clearTimers() {for(i=1;i <= 7;i=i+1) {clearInterval('timer' + i);}}
+function clearTimers() 
+	{
+		clearInterval(timer1);
+		clearInterval(timer2);
+		clearInterval(timer3);
+		clearInterval(timer4);
+		clearInterval(timer5);
+		clearInterval(timer6);
+		clearInterval(timer7);
+
+	}
 
 function checkScore() {
 
