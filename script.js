@@ -1,4 +1,5 @@
 var buttonEL = document.getElementById("mainButton");
+var resetEL = document.getElementById("reset");
 var scoreEl = document.getElementById("score");
 var buttonArea = document.getElementById("buttonArea");
 
@@ -17,6 +18,11 @@ function timer1000PerSecond() {var timer7 = setInterval(function(){score = score
 
 function clearTimers() {for(i=1;i <= 7;i=i+1) {clearInterval('timer' + i);}}
 
+function resetGame() {
+	score = 0;
+	setScoreText();
+	clearTimers();
+}
 
 function checkScore() {
 
@@ -51,7 +57,15 @@ buttonEL.addEventListener	(
 	{
 		score = score + 1;
 		setScoreText();
-		newButtonGenerate();
+		checkScore();
+	}
+);
+
+
+resetEL.addEventListener	(
+	'click', function()
+	{
+		resetGame();
 	}
 );
 
