@@ -5,24 +5,46 @@ var buttonArea = document.getElementById("buttonArea");
 var userId = localStorage.getItem("userId") || '';
 var score = +localStorage.getItem("score") || 0;
 
-function timer1PerSecond() {
-	var timer = setInterval(function() 
-	{
-		score = score + 1;
+var sendScoreUrl = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId;
 
-		if(score === 0) {
-		// Stops execution of action at set interval
-		clearInterval(timer);
+function timer1PerSecond() {var timer1 = setInterval(function(){score = score + 1;setScoreText();checkScore();}, 1000);}
+function timer5PerSecond() {var timer2 = setInterval(function(){score = score + 1;setScoreText();checkScore();}, 500);}
+function timer10PerSecond() {var timer3 = setInterval(function(){score = score + 1;setScoreText();checkScore();}, 100);}
+function timer50PerSecond() {var timer4 = setInterval(function(){score = score + 1;setScoreText();checkScore();}, 50);}
+function timer100PerSecond() {var timer5 = setInterval(function(){score = score + 1;setScoreText();checkScore();}, 10);}
+function timer500PerSecond() {var timer6 = setInterval(function(){score = score + 1;setScoreText();checkScore();}, 5);}
+function timer1000PerSecond() {var timer7 = setInterval(function(){score = score + 1;setScoreText();checkScore();}, 1);}
+
+function clearTimers() {for(i=1;i <= 7;i=i+1) {clearInterval('timer' + i);}}
+
+function checkScore() {
+	if(score % 10)
+		{
+			newButtonGenerate('1 Click per second');
 		}
 
-	setScoreText();
+	}
 
-	}, 1000);
+function newButtonGenerate() {
+
+			
+			// creating button element
+			var button = document.createElement('button');
+
+			button.innerHTML = '1 Click per second';
+
+			button.classList.add("storeButton");
+			button.setAttribute('ID',score);
+				
+			// appending button to div
+			buttonArea.appendChild(button);
+
+//			element.addEventListener("click", function() {
+//				document.getElementById(cost).innerHTML = "Hello World";
+//			  });
+
 }
 
-// https://javascript.info/fetch-api
-
-var sendScoreUrl = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId;
 
 
 function apiSend(request) {
@@ -37,25 +59,22 @@ function apiSend(request) {
 		localStorage.setItem("score", score);
 	})
 
-// https://stackoverflow.com/questions/41946457/getting-text-from-fetch-response-object
-
-
 }
-
-
-
 
 buttonEL.addEventListener	(
 	'click', function()
 	{
 		score = score + 1;
 		setScoreText();
+		newButtonGenerate();
 	}
 );
 
 function setScoreText() {
-	scoreEl.textContent = score;
+	buttonEL.textContent = score;
 	localStorage.setItem("score", score);
 }
 
 apiSend(sendScoreUrl);
+setScoreText();
+clearTimers();
