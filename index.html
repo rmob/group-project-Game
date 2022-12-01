@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clicky Box</title>
     <link rel="stylesheet" href="./style.css">
@@ -10,7 +11,7 @@
 
 </head>
 <body>
-    <!-- TITLE -->
+         <!-- TITLE -->
       <h1 class="title" id="top">Clicky Box!</h1>
 
 
@@ -28,12 +29,26 @@
     </div>
 
         <!-- Score Board  -->
+    <div> 
+      <button id="submit" class="submitBtn">SUBMIT</button>
+    </div>
+    <div>
+      <input type="text" class="name" id="userName">
+    </div>
+   
     <div id="score" class="scoreBoard"></div>
-
+    
 
         <!-- Pop up buttons -->
-    <div id="buttonArea" class="extraButtons"></div>
+    <div id="buttonArea" class="extraButtons">
+        <button class="buttons btn1">1</button>
+        <button class="buttons btn2">2</button>
+        <button class="buttons btn3">3</button>
+        <button class="buttons btn4">4</button>
+    </div>
+        
 
-     <script src="./script.js"></script>
+   <script src="script.js"></script>
+
 </body>
 </html>
