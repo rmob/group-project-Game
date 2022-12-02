@@ -21,7 +21,7 @@ apiSend("CheckID", CheckID);
 
 var GetScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=GetScore&userID=' + userId;
 apiSend('GetScore',GetScore);
-var personalHighScore = +localStorage.getItem("personalHighScore");
+var personalHighScore = +localStorage.getItem("personalHighScore") || 0;
 
 var countDownTimer;
 var countDown = 30;
