@@ -118,17 +118,17 @@ function clearTimers()
 //		console.log(timer1Active,timer2Active,timer3Active,timer4Active,timer5Active,timer6Active,timer7Active);
 
 		if(firstPress == 1){clearInterval(countDownTimer);firstPress = 0;}
-		if(timer1Active == 1){clearInterval(1);timer1Active = 0;}
-		if(timer2Active == 1){clearInterval(2);timer2Active = 0;}
-		if(timer3Active == 1){clearInterval(3);timer3Active = 0;}
-		if(timer4Active == 1){clearInterval(4);timer4Active = 0;}
-		if(timer5Active == 1){clearInterval(5);timer5Active = 0;}
-		if(timer6Active == 1){clearInterval(6);timer6Active = 0;}
-		if(timer7Active == 1){clearInterval(7);timer7Active = 0;}
-		if(timer8Active == 1){clearInterval(8);timer8Active = 0;}
-		if(timer9Active == 1){clearInterval(9);timer9Active = 0;}
-		if(timer10Active == 1){clearInterval(10);timer10Active = 0;}
-		if(timer11Active == 1){clearInterval(11);timer11Active = 0;}
+		if(timer1Active == 1){clearInterval(timer1);timer1Active = 0;}
+		if(timer2Active == 1){clearInterval(timer2);timer2Active = 0;}
+		if(timer3Active == 1){clearInterval(timer3);timer3Active = 0;}
+		if(timer4Active == 1){clearInterval(timer4);timer4Active = 0;}
+		if(timer5Active == 1){clearInterval(timer5);timer5Active = 0;}
+		if(timer6Active == 1){clearInterval(timer6);timer6Active = 0;}
+		if(timer7Active == 1){clearInterval(timer7);timer7Active = 0;}
+		if(timer8Active == 1){clearInterval(timer8);timer8Active = 0;}
+		if(timer9Active == 1){clearInterval(timer9);timer9Active = 0;}
+		if(timer10Active == 1){clearInterval(timer10);timer10Active = 0;}
+		if(timer11Active == 1){clearInterval(timer11);timer11Active = 0;}
 
 		buttonEL.textContent = score;
 
