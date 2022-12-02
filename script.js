@@ -24,7 +24,7 @@ apiSend('GetScore',GetScore);
 var personalHighScore = +localStorage.getItem("personalHighScore");
 
 var countDownTimer;
-var countDown = 60;
+var countDown = 30;
 
 var firstPress = 0;
 var timer1Active = 0;
@@ -321,7 +321,7 @@ function resetGame() {
 	userFormEl.style.visibility = 'hidden';
 
 	firstPress = 0;
-	countDown = 60;
+	countDown = 30;
 	timer1Active = 0;
 	timer2Active = 0;
 	timer3Active = 0;
