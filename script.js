@@ -84,14 +84,15 @@ function startCountdown()
 							clearTimers();
 							buttonEL.disabled = true;
 							buttonArea.style.visibility = 'hidden';
-							userFormEl.style.visibility = 'visible';
-							countDownEl.textContent = "Congrats! You have gotten a score of " + score + ". Please enter your name and submit it.";
+							countDownEl.textContent = "Congrats! You have gotten a score of " + score + "."; 
 							if(personalHighScore < score)
 							{
 								localStorage.setItem("personalHighScore", score);
 								personalHighScoreEl.textContent = "Personal High Score: " + score;
+								userFormEl.style.visibility = 'visible';
+								countDownEl.textContent = "Congrats! You have gotten a score of " + score + ". Since you beat your personal high score, enter your name into the Leaderboard.";
+	
 							}
-		// show name field and submit button. On submit button, submit it to the high score.
 						}
 
 				}
@@ -333,7 +334,6 @@ function resetGame() {
 	buttonArea.style.visibility = 'visible';
 	userFormEl.style.visibility = 'hidden';
 
-	firstPress = 0;
 	countDown = 30;
 	timer1Active = 0;
 	timer2Active = 0;
