@@ -7,6 +7,8 @@ var personalHighScoreEl = document.getElementById("personalHighScore");
 var leaderboardEl = document.getElementById("leaderboard");
 var submitEl = document.getElementById("submit");
 var userNameEl = document.getElementById("userName");
+var userFormEl = document.getElementById("scoreBoard");
+
 
 var userId = localStorage.getItem("userId") || '';
 var score = 0;
@@ -57,6 +59,7 @@ function startCountdown()
 							clearTimers();
 							buttonEL.disabled = true;
 							buttonArea.style.visibility = 'hidden';
+							userFormEl.style.visibility = 'visible';
 							countDownEl.textContent = "Congrats! You have gotten a score of " + score + ". Please enter your name and submit it.";
 							if(personalHighScore < score)
 							{
@@ -263,8 +266,6 @@ function apiSend(namedrequest, request) {
 				break;
 
 		}
-							
-
 
 	})
 
@@ -287,6 +288,9 @@ resetEL.addEventListener	(
 		buttonEL.textContent = score;
 		localStorage.setItem("score", score);
 		clearTimers();
+		buttonEL.disabled = false;
+		buttonArea.style.visibility = 'visible';
+		userFormEl.style.visibility = 'hidden';
 	}
 );
 
@@ -296,10 +300,16 @@ submitEl.addEventListener	(
 	{
 		var EnterScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId + '&Username=' + userNameEl.value;
 		apiSend("EnterScore", EnterScore);
-			
+		score = 0;
+		buttonEL.textContent = score;
+		localStorage.setItem("score", score);
+		clearTimers();
+		buttonEL.disabled = false;
+		buttonArea.style.visibility = 'visible';
+		userFormEl.style.visibility = 'hidden';
+		
 	}
 );
-
 
 
 
