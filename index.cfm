@@ -15,22 +15,8 @@
 				Limit 3
 			</cfquery>
 
-			<cfset Leaderboard = "">
-			<cfset FirstFlag = 0>
+			#trim(SerializeJSON(Data, 'struct'))#
 
-			<cfloop query="Data">
-				<cfset NewData = "#Data.UserName#,#Data.Score#">
-
-				<cfif FirstFlag EQ 1>
-					<cfset NewData = NewData & ",">
-				<cfelse>
-					<cfset FirstFlag = 1>
-				</cfif>
-
-				<cfset Leaderboard = Leaderboard & NewData>
-			</cfloop>
-
-			#trim(Leaderboard)#
 		</cfcase>
 
 		<cfcase value="CheckID">
@@ -64,31 +50,23 @@
 
 
 		<cfcase value="EnterScore">
-			<cfif isdefined('url.UserID')>
-				<cfset UserID = "#url.UserID#">
-			<cfelse>
-				<cfset UserID = "">
-			</cfif>
-			<cfif isdefined('url.Score')>
-				<cfset Score = "#url.Score#">
-			<cfelse>
-				No Score given.<cfabort>
-			</cfif>	
-			<cfif isdefined('url.Username')>
-				<cfset Username = "#url.Username#">
-			<cfelse>
-				<cfset Username = "">
-			</cfif>	
+			<cfset UserID = "#url.UserID#">
+			<cfset Score = "#url.Score#">
+			<cfset Username = "#url.Username#">
 
 			<cfquery datasource="Bootcamp" name="Data">
 				Select 	UserID
 						, Score
-						, Username
 				From	Data
 				Where 	UserID = '#UserID#'
 			</cfquery>
 
 			<cfif Score GT Data.Score>
+
+				<cfif Username is "">
+					<cfset Username = "Annonymous">
+				</cfif>
+
 				<cfquery datasource="Bootcamp">
 					Update Data
 					Set Score = #Score#
@@ -96,16 +74,12 @@
 					Where UserID = '#Data.UserID#'
 				</cfquery>
 			</cfif>
-
+			OK
 		</cfcase>
 
 
 		<cfcase value="GetScore">
-			<cfif isdefined('url.UserID')>
-				<cfset UserID = "#url.UserID#">
-			<cfelse>
-				No UserID given.<cfabort>
-			</cfif>			
+			<cfset UserID = "#url.UserID#">
 
 			<cfquery datasource="Bootcamp" name="Data">
 				Select 	Score
@@ -113,7 +87,12 @@
 				Where 	UserID = '#UserID#'
 			</cfquery>
 			
-			#trim(data.score)#
+			<cfif Data.Recordcount GT 0>
+				#trim(data.score)#
+			<cfelse>
+				0
+			</cfif>
+
 		</cfcase>
 
 		<cfdefaultcase>
