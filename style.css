@@ -129,12 +129,22 @@ button {
     display: flex;
     justify-content: center;
     margin: auto;
+    background-color: lightblue;
+    font-size: 2rem;
 }
 
 #userName {
     border: 1px solid gray;
     display: flex;
     margin: auto;
+    max-width: 20%;
+    border-radius: 5px;
+    margin-top: 1rem;
 
 }
 
+#countDown, #personalHighScore, #leaderboard {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
