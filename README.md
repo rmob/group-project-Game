@@ -29,4 +29,5 @@ Team - 10 set out to make an idle clicking game to help people get through borin
 
 When you get to the website you are presented with a large button with a score of 0 in the center and a timer. the object of the game is to click the button as much as you can within 30 seconds. When you click enough times you are presented with rewards that when clicked will give you an automated click, the amount of the reward depends on the amount of clicks. As you click the rewards you are given automated clicks making your score drastically increase with each passing second. After the initial timer is over you are asked to submit a user name and are presented with a leaderboard. 
 
-We used HTML, CSS, 
+We used HTML, CSS, foundation CSS framework, Javascript, Third Party APIs, figma to accomplish our goals. 
+
