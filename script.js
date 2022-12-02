@@ -4,10 +4,18 @@ var scoreEl = document.getElementById("score");
 var buttonArea = document.getElementById("buttonArea");
 var countDownEl = document.getElementById("countDown");
 var personalHighScoreEl = document.getElementById("personalHighScore");
-var leaderboardEl = document.getElementById("leaderboard");
 var submitEl = document.getElementById("submit");
 var userNameEl = document.getElementById("userName");
 var userFormEl = document.getElementById("scoreBoard");
+
+var leaderBoardData = '';
+var leaderboard1nameEl = document.getElementById("leaderboard1user");
+var leaderboard1scoreEl = document.getElementById("leaderboard1score");
+var leaderboard2nameEl = document.getElementById("leaderboard2name");
+var leaderboard2scoreEl = document.getElementById("leaderboard2score");
+var leaderboard3nameEl = document.getElementById("leaderboard3name");
+var leaderboard3scoreEl = document.getElementById("leaderboard3score");
+
 
 
 var score = 0;
@@ -281,7 +289,16 @@ function apiSend(namedrequest, request) {
 				break;
 
 			case 'GetLeaderboard':
-				leaderboardEl.textContent = response.trim();
+//				[{"Username":"Annonymous","Score":40},{"Username":"Joseph","Score":4}]
+				leaderBoardData = JSON.parse(response.trim());
+
+				leaderboard1nameEl.textContent = leaderBoardData[0]["Username"].trim();
+				leaderboard1scoreEl.textContent = leaderBoardData[0]["Score"].trim();
+				leaderboard2nameEl.textContent = leaderBoardData[1]["Username"].trim();
+				leaderboard2scoreEl.textContent = leaderBoardData[1]["Score"].trim();
+				leaderboard3nameEl.textContent = leaderBoardData[2]["Username"].trim();
+				leaderboard3scoreEl.textContent = leaderBoardData[2]["Score"].trim();
+
 				break;
 			case 'GetScore':
 				localStorage.setItem("personalHighScore", response.trim());
