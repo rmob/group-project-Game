@@ -47,7 +47,7 @@ button {
 
 }
 
-#mainButton:active {
+#mainButton:hover {
     background-color: red;
 }
 
@@ -69,7 +69,7 @@ button {
     text-align: center;
 }
 
-#score {
+/* #score {
     display: flex;
     border-style: 1px solid black;
     background-color: gray;
@@ -84,7 +84,7 @@ button {
 
 
 
-}
+} */
 
 #buttonArea {
     display: flex;
@@ -126,5 +126,15 @@ button {
 }
 
 #reset {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+#userName {
+    border: 1px solid gray;
+    display: flex;
+    margin: auto;
 
 }
+
