@@ -23,6 +23,7 @@ var GetScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=GetScore&
 apiSend('GetScore',GetScore);
 var personalHighScore = +localStorage.getItem("personalHighScore");
 
+var countDownTimer;
 var countDown = 5;
 
 var firstPress = 0;
@@ -38,6 +39,19 @@ var timer9Active = 0;
 var timer10Active = 0;
 var timer11Active = 0;
 
+var button1;
+var button2;
+var button3;
+var button4;
+var button5;
+var button6;
+var button7;
+var button8;
+var button9;
+var button10;
+var button11;
+
+
 countDownEl.textContent = "We will be starting when you first press the button";
 
 
@@ -45,7 +59,7 @@ function startCountdown()
 	{
 		if(firstPress == 0)
 		{
-			var countDownTimer=setInterval(function()
+			countDownTimer=setInterval(function()
 			{
 				{
 					if (countDown > 0) 
@@ -55,7 +69,6 @@ function startCountdown()
 						}
 					else
 						{
-							clearInterval(countDownTimer);
 							clearTimers();
 							buttonEL.disabled = true;
 							buttonArea.style.visibility = 'hidden';
@@ -92,6 +105,7 @@ function clearTimers()
 	{
 //		console.log(timer1Active,timer2Active,timer3Active,timer4Active,timer5Active,timer6Active,timer7Active);
 
+		if(firstPress == 1){clearInterval(countDownTimer);firstPress = 0;}
 		if(timer1Active == 1){clearInterval(1);timer1Active = 0;}
 		if(timer2Active == 1){clearInterval(2);timer2Active = 0;}
 		if(timer3Active == 1){clearInterval(3);timer3Active = 0;}
@@ -103,7 +117,6 @@ function clearTimers()
 		if(timer9Active == 1){clearInterval(9);timer9Active = 0;}
 		if(timer10Active == 1){clearInterval(10);timer10Active = 0;}
 		if(timer11Active == 1){clearInterval(11);timer11Active = 0;}
-		if(firstPress == 1){clearInterval(countDownTimer);firstPress = 0;}
 
 		buttonEL.textContent = score;
 
@@ -118,7 +131,7 @@ function checkScore()
 
 		if(score == 11 && timer1Active == 0)
 			{
-			var button1 = document.createElement('button');
+			button1 = document.createElement('button');
 			button1.innerHTML = '1 click per second';
 			button1.classList.add("storeButton");
 			button1.setAttribute('ID','storeButton-1');
@@ -129,7 +142,7 @@ function checkScore()
 
 		if(score == 12 && timer2Active == 0)
 			{
-			var button2 = document.createElement('button');
+			button2 = document.createElement('button');
 			button2.innerHTML = '5 clicks per second';
 			button2.classList.add("storeButton");
 			button2.setAttribute('ID','storeButton-2');
@@ -140,7 +153,7 @@ function checkScore()
 
 		if(score == 13 && timer3Active == 0)
 			{
-			var button3 = document.createElement('button');
+			button3 = document.createElement('button');
 			button3.innerHTML = '10 clicks per second';
 			button3.classList.add("storeButton");
 			button3.setAttribute('ID','storeButton-3');
@@ -151,7 +164,7 @@ function checkScore()
 
 		if(score == 14 && timer4Active == 0)
 			{
-			var button4 = document.createElement('button');
+			button4 = document.createElement('button');
 			button4.innerHTML = '50 clicks per second';
 			button4.classList.add("storeButton");
 			button4.setAttribute('ID','storeButton-4');
@@ -162,7 +175,7 @@ function checkScore()
 
 		if(score == 15 && timer5Active == 0)
 			{
-			var button5 = document.createElement('button');
+			button5 = document.createElement('button');
 			button5.innerHTML = '100 clicks per second';
 			button5.classList.add("storeButton");
 			button5.setAttribute('ID','storeButton-5');
@@ -173,7 +186,7 @@ function checkScore()
 
 		if(score == 16 && timer6Active == 0)
 			{
-			var button6 = document.createElement('button');
+			button6 = document.createElement('button');
 			button6.innerHTML = '500 clicks per second';
 			button6.classList.add("storeButton");
 			button6.setAttribute('ID','storeButton-6');
@@ -184,7 +197,7 @@ function checkScore()
 
 		if(score == 17 && timer7Active == 0)
 			{
-			var button7 = document.createElement('button');
+			button7 = document.createElement('button');
 			button7.innerHTML = '1,000 clicks per second';
 			button7.classList.add("storeButton");
 			button7.setAttribute('ID','storeButton-7');
@@ -195,7 +208,7 @@ function checkScore()
 
 		if(score == 17 && timer8Active == 0)
 			{
-			var button8 = document.createElement('button');
+			button8 = document.createElement('button');
 			button8.innerHTML = '5,000 clicks per second';
 			button8.classList.add("storeButton");
 			button8.setAttribute('ID','storeButton-8');
@@ -206,7 +219,7 @@ function checkScore()
 
 		if(score == 17 && timer9Active == 0)
 			{
-			var button9 = document.createElement('button');
+			button9 = document.createElement('button');
 			button9.innerHTML = '10,000 clicks per second';
 			button9.classList.add("storeButton");
 			button9.setAttribute('ID','storeButton-9');
@@ -217,7 +230,7 @@ function checkScore()
 
 		if(score == 17 && timer10Active == 0)
 			{
-			var button10 = document.createElement('button');
+			button10 = document.createElement('button');
 			button10.innerHTML = '50,000 clicks per second';
 			button10.classList.add("storeButton");
 			button10.setAttribute('ID','storeButton-10');
@@ -228,7 +241,7 @@ function checkScore()
 
 		if(score == 17 && timer11Active == 0)
 			{
-			var button11 = document.createElement('button');
+			button11 = document.createElement('button');
 			button11.innerHTML = '100,000 clicks per second';
 			button11.classList.add("storeButton");
 			button11.setAttribute('ID','storeButton-11');
@@ -244,8 +257,6 @@ function apiSend(namedrequest, request) {
 	fetch(request)
 	.then(response => response.text())
 	.then((response) => {
-		console.log(response);
-
 		switch (namedrequest) 
 		{
 			case 'CheckID':
@@ -276,7 +287,6 @@ function apiSend(namedrequest, request) {
 buttonEL.addEventListener	(
 	'click', function()
 	{
-		console.log(countDown);
 		if(firstPress == 0){startCountdown()};
 		score = score + 1;
 		checkScore();
@@ -303,17 +313,15 @@ submitEl.addEventListener	(
 
 
 function resetGame() {
-	console.log('reset game ran');
 	score = 0;
 	buttonEL.textContent = score;
 	localStorage.setItem("score", score);
-	clearTimers();
 	buttonEL.disabled = false;
 	buttonArea.style.visibility = 'visible';
 	userFormEl.style.visibility = 'hidden';
 
-	countDown = 5;
 	firstPress = 0;
+	countDown = 5;
 	timer1Active = 0;
 	timer2Active = 0;
 	timer3Active = 0;
@@ -326,6 +334,10 @@ function resetGame() {
 	timer10Active = 0;
 	timer11Active = 0;
 
+	clearTimers();
+
+	countDownEl.textContent = "We will be starting when you first press the button";
+
 	if (typeof button1 != "undefined") {button1.remove();}
 	if (typeof button2 != "undefined") {button2.remove();}
 	if (typeof button3 != "undefined") {button3.remove();}
@@ -337,9 +349,8 @@ function resetGame() {
 	if (typeof button9 != "undefined") {button9.remove();}
 	if (typeof button10 != "undefined") {button10.remove();}
 	if (typeof button11 != "undefined") {button11.remove();}
-
 }
 
-buttonEL.textContent = score;
-clearTimers();
+
+resetGame();
 
