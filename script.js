@@ -51,6 +51,18 @@ var button9;
 var button10;
 var button11;
 
+var timer1;
+var timer2;
+var timer3;
+var timer4;
+var timer5;
+var timer6;
+var timer7;
+var timer8;
+var timer9;
+var timer10;
+var timer11;
+
 
 countDownEl.textContent = "We will be starting when you first press the button";
 
