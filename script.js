@@ -307,6 +307,7 @@ submitEl.addEventListener	(
 	{
 		var EnterScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId + '&Username=' + userNameEl.value;
 		apiSend("EnterScore", EnterScore);
+		apiSend('GetLeaderboard',GetLeaderboard);
 		resetGame();		
 	}
 );
