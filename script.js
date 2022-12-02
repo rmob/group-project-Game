@@ -68,6 +68,7 @@ function startCountdown()
 							}
 		// show name field and submit button. On submit button, submit it to the high score.
 						}
+
 				}
 			}, 1000)
 		};
@@ -102,6 +103,7 @@ function clearTimers()
 		if(timer9Active == 1){clearInterval(9);timer9Active = 0;}
 		if(timer10Active == 1){clearInterval(10);timer10Active = 0;}
 		if(timer11Active == 1){clearInterval(11);timer11Active = 0;}
+		if(firstPress == 1){clearInterval(countDownTimer);firstPress = 0;}
 
 		buttonEL.textContent = score;
 
@@ -274,6 +276,7 @@ function apiSend(namedrequest, request) {
 buttonEL.addEventListener	(
 	'click', function()
 	{
+		console.log(countDown);
 		if(firstPress == 0){startCountdown()};
 		score = score + 1;
 		checkScore();
@@ -284,13 +287,7 @@ buttonEL.addEventListener	(
 resetEL.addEventListener	(
 	'click', function()
 	{
-		score = 0;
-		buttonEL.textContent = score;
-		localStorage.setItem("score", score);
-		clearTimers();
-		buttonEL.disabled = false;
-		buttonArea.style.visibility = 'visible';
-		userFormEl.style.visibility = 'hidden';
+		resetGame();
 	}
 );
 
@@ -300,18 +297,48 @@ submitEl.addEventListener	(
 	{
 		var EnterScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId + '&Username=' + userNameEl.value;
 		apiSend("EnterScore", EnterScore);
-		score = 0;
-		buttonEL.textContent = score;
-		localStorage.setItem("score", score);
-		clearTimers();
-		buttonEL.disabled = false;
-		buttonArea.style.visibility = 'visible';
-		userFormEl.style.visibility = 'hidden';
-		
+		resetGame();		
 	}
 );
 
 
+function resetGame() {
+	console.log('reset game ran');
+	score = 0;
+	buttonEL.textContent = score;
+	localStorage.setItem("score", score);
+	clearTimers();
+	buttonEL.disabled = false;
+	buttonArea.style.visibility = 'visible';
+	userFormEl.style.visibility = 'hidden';
+
+	countDown = 5;
+	firstPress = 0;
+	timer1Active = 0;
+	timer2Active = 0;
+	timer3Active = 0;
+	timer4Active = 0;
+	timer5Active = 0;
+	timer6Active = 0;
+	timer7Active = 0;
+	timer8Active = 0;
+	timer9Active = 0;
+	timer10Active = 0;
+	timer11Active = 0;
+
+	if (typeof button1 != "undefined") {button1.remove();}
+	if (typeof button2 != "undefined") {button2.remove();}
+	if (typeof button3 != "undefined") {button3.remove();}
+	if (typeof button4 != "undefined") {button4.remove();}
+	if (typeof button5 != "undefined") {button5.remove();}
+	if (typeof button6 != "undefined") {button6.remove();}
+	if (typeof button7 != "undefined") {button7.remove();}
+	if (typeof button8 != "undefined") {button8.remove();}
+	if (typeof button9 != "undefined") {button9.remove();}
+	if (typeof button10 != "undefined") {button10.remove();}
+	if (typeof button11 != "undefined") {button11.remove();}
+
+}
 
 buttonEL.textContent = score;
 clearTimers();
