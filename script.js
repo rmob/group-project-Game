@@ -51,6 +51,18 @@ var button9;
 var button10;
 var button11;
 
+var timer1;
+var timer2;
+var timer3;
+var timer4;
+var timer5;
+var timer6;
+var timer7;
+var timer8;
+var timer9;
+var timer10;
+var timer11;
+
 
 countDownEl.textContent = "We will be starting when you first press the button";
 
@@ -89,17 +101,17 @@ function startCountdown()
 	}
 
 
-function timer1(){var timer1=setInterval(function(){score=score+1;checkScore()}, 1000);}
-function timer2(){var timer2=setInterval(function(){score=score+1;checkScore()}, 500);}
-function timer3(){var timer3=setInterval(function(){score=score+1;checkScore()}, 100);}
-function timer4(){var timer4=setInterval(function(){score=score+1;checkScore()}, 50);}
-function timer5(){var timer5=setInterval(function(){score=score+1;checkScore()}, 10);}
-function timer6(){var timer6=setInterval(function(){score=score+1;checkScore()}, 5);}
-function timer7(){var timer7=setInterval(function(){score=score+1;checkScore()}, 1);}
-function timer8(){var timer8=setInterval(function(){score=score+5;checkScore()}, 1);}
-function timer9(){var timer9=setInterval(function(){score=score+10;checkScore()}, 1);}
-function timer10(){var timer10=setInterval(function(){score=score+50;checkScore()}, 1);}
-function timer11(){var timer11=setInterval(function(){score=score+100;checkScore()}, 1);}
+function timer1Start(){timer1=setInterval(function(){score=score+1;checkScore()}, 1000);}
+function timer2Start(){timer2=setInterval(function(){score=score+1;checkScore()}, 500);}
+function timer3Start(){timer3=setInterval(function(){score=score+1;checkScore()}, 100);}
+function timer4Start(){timer4=setInterval(function(){score=score+1;checkScore()}, 50);}
+function timer5Start(){timer5=setInterval(function(){score=score+1;checkScore()}, 10);}
+function timer6Start(){timer6=setInterval(function(){score=score+1;checkScore()}, 5);}
+function timer7Start(){timer7=setInterval(function(){score=score+1;checkScore()}, 1);}
+function timer8Start(){timer8=setInterval(function(){score=score+5;checkScore()}, 1);}
+function timer9Start(){timer9=setInterval(function(){score=score+10;checkScore()}, 1);}
+function timer10Start(){timer10=setInterval(function(){score=score+50;checkScore()}, 1);}
+function timer11Start(){timer11=setInterval(function(){score=score+100;checkScore()}, 1);}
 
 function clearTimers() 
 	{
@@ -136,7 +148,7 @@ function checkScore()
 			button1.classList.add("storeButton");
 			button1.setAttribute('ID','storeButton-1');
 			buttonArea.appendChild(button1);
-			button1.addEventListener('click', function(){timer1();button1.remove()});
+			button1.addEventListener('click', function(){timer1Start();button1.remove()});
 			timer1Active = 1;
 			}
 
@@ -147,7 +159,7 @@ function checkScore()
 			button2.classList.add("storeButton");
 			button2.setAttribute('ID','storeButton-2');
 			buttonArea.appendChild(button2);
-			button2.addEventListener('click', function(){timer2();button2.remove()});
+			button2.addEventListener('click', function(){timer2Start();button2.remove()});
 			timer2Active = 1;
 			}
 
@@ -158,7 +170,7 @@ function checkScore()
 			button3.classList.add("storeButton");
 			button3.setAttribute('ID','storeButton-3');
 			buttonArea.appendChild(button3);
-			button3.addEventListener('click', function(){timer3();button3.remove()});
+			button3.addEventListener('click', function(){timer3Start();button3.remove()});
 			timer3Active = 1;
 			}
 
@@ -169,7 +181,7 @@ function checkScore()
 			button4.classList.add("storeButton");
 			button4.setAttribute('ID','storeButton-4');
 			buttonArea.appendChild(button4);
-			button4.addEventListener('click', function(){timer4();button4.remove()});
+			button4.addEventListener('click', function(){timer4Start();button4.remove()});
 			timer4Active = 1;
 			}
 
@@ -180,7 +192,7 @@ function checkScore()
 			button5.classList.add("storeButton");
 			button5.setAttribute('ID','storeButton-5');
 			buttonArea.appendChild(button5);
-			button5.addEventListener('click', function(){timer5();button5.remove()});
+			button5.addEventListener('click', function(){timer5Start();button5.remove()});
 			timer5Active = 1;
 			}
 
@@ -191,7 +203,7 @@ function checkScore()
 			button6.classList.add("storeButton");
 			button6.setAttribute('ID','storeButton-6');
 			buttonArea.appendChild(button6);
-			button6.addEventListener('click', function(){timer6();button6.remove()});
+			button6.addEventListener('click', function(){timer6Start();button6.remove()});
 			timer6Active = 1;
 			}
 
@@ -202,7 +214,7 @@ function checkScore()
 			button7.classList.add("storeButton");
 			button7.setAttribute('ID','storeButton-7');
 			buttonArea.appendChild(button7);
-			button7.addEventListener('click', function(){timer7();button7.remove()});
+			button7.addEventListener('click', function(){timer7Start();button7.remove()});
 			timer7Active = 1;
 			}
 
@@ -213,7 +225,7 @@ function checkScore()
 			button8.classList.add("storeButton");
 			button8.setAttribute('ID','storeButton-8');
 			buttonArea.appendChild(button8);
-			button8.addEventListener('click', function(){timer8();button8.remove()});
+			button8.addEventListener('click', function(){timer8Start();button8.remove()});
 			timer8Active = 1;
 			}
 
@@ -224,7 +236,7 @@ function checkScore()
 			button9.classList.add("storeButton");
 			button9.setAttribute('ID','storeButton-9');
 			buttonArea.appendChild(button9);
-			button9.addEventListener('click', function(){timer9();button9.remove()});
+			button9.addEventListener('click', function(){timer9Start();button9.remove()});
 			timer9Active = 1;
 			}
 
@@ -235,7 +247,7 @@ function checkScore()
 			button10.classList.add("storeButton");
 			button10.setAttribute('ID','storeButton-10');
 			buttonArea.appendChild(button10);
-			button10.addEventListener('click', function(){timer10();button10.remove()});
+			button10.addEventListener('click', function(){timer10Start();button10.remove()});
 			timer10Active = 1;
 			}
 
@@ -246,7 +258,7 @@ function checkScore()
 			button11.classList.add("storeButton");
 			button11.setAttribute('ID','storeButton-11');
 			buttonArea.appendChild(button11);
-			button11.addEventListener('click', function(){timer11();button11.remove()});
+			button11.addEventListener('click', function(){timer11Start();button11.remove()});
 			timer11Active = 1;
 			}
 
@@ -307,6 +319,7 @@ submitEl.addEventListener	(
 	{
 		var EnterScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId + '&Username=' + userNameEl.value;
 		apiSend("EnterScore", EnterScore);
+		apiSend('GetLeaderboard',GetLeaderboard);
 		resetGame();		
 	}
 );
