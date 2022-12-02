@@ -9,7 +9,7 @@ var userNameEl = document.getElementById("userName");
 var userFormEl = document.getElementById("scoreBoard");
 
 var leaderBoardData = '';
-var leaderboard1nameEl = document.getElementById("leaderboard1user");
+var leaderboard1nameEl = document.getElementById("leaderboard1name");
 var leaderboard1scoreEl = document.getElementById("leaderboard1score");
 var leaderboard2nameEl = document.getElementById("leaderboard2name");
 var leaderboard2scoreEl = document.getElementById("leaderboard2score");
