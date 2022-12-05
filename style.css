@@ -11,9 +11,9 @@ body {
     font-weight: bolder;
 }
 
-h2 {
+#theModal h2 {
+    font-size: 2rem;
     font-style: italic;
-    font-size: 1.2rem;
 }
 
 
@@ -35,7 +35,7 @@ button {
     align-items: center;
     width: 15rem;
     height: 15rem;
-    background-color: orange;
+    background-color: gold;
     box-shadow: 0 0 30px 10px blueviolet;
     color: white;
     font-size: 8rem;
@@ -121,6 +121,7 @@ button {
     border-radius: 100px;
     box-shadow: 0 0 3px 3px yellow;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 
     
 }
@@ -136,19 +137,34 @@ button {
 #userName {
     border: 1px solid gray;
     display: flex;
+    flex-wrap: wrap;
     margin: auto;
     max-width: 20%;
     min-width: 15%;
     border-radius: 5px;
     margin-top: 2rem;
-    text-align: center;
+    /* text-align: center; */
+    align-items: center;
     
     
 
 }
 
-#countDown, #personalHighScore, #leaderboard {
+#countDown {
+    margin-bottom: 1rem;
+}
+
+#personalHighScore {
+    margin-bottom: 1rem;
+}
+
+.results {
+    margin: 2rem auto;
+    max-width: 40%;
     display: flex;
-    justify-content: center;
-    margin: auto;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+   
+
+
 }
