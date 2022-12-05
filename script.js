@@ -72,6 +72,19 @@ var timer9;
 var timer10;
 var timer11;
 
+var level1 = 10;
+var level2 = 25;
+var level3 = 100;
+var level4 = 200;
+var level5 = 400;
+var level6 = 700;
+var level7 = 1200;
+var level8 = 2000;
+var level9 = 3300;
+var level10 = 5100;
+var level11 = 8500;
+
+
 
 countDownEl.textContent = "We will be starting when you first press the button";
 
@@ -152,7 +165,7 @@ function checkScore()
 		buttonEL.textContent = score;
 		localStorage.setItem("score", score);
 
-		if(score == 10 && timer1Active == 0)
+		if(score == level1 && timer1Active == 0)
 			{
 			button1 = document.createElement('button');
 			button1.innerHTML = '1 click per second';
@@ -163,7 +176,7 @@ function checkScore()
 			timer1Active = 1;
 			}
 
-		if(score == 25 && timer2Active == 0)
+		if(score == level2 && timer2Active == 0)
 			{
 			button2 = document.createElement('button');
 			button2.innerHTML = '5 clicks per second';
@@ -174,7 +187,7 @@ function checkScore()
 			timer2Active = 1;
 			}
 
-		if(score == 100 && timer3Active == 0)
+		if(score == level3 && timer3Active == 0)
 			{
 			button3 = document.createElement('button');
 			button3.innerHTML = '10 clicks per second';
@@ -185,7 +198,7 @@ function checkScore()
 			timer3Active = 1;
 			}
 
-		if(score == 200 && timer4Active == 0)
+		if(score == level4 && timer4Active == 0)
 			{
 			button4 = document.createElement('button');
 			button4.innerHTML = '50 clicks per second';
@@ -196,7 +209,7 @@ function checkScore()
 			timer4Active = 1;
 			}
 
-		if(score == 400 && timer5Active == 0)
+		if(score == level5 && timer5Active == 0)
 			{
 			button5 = document.createElement('button');
 			button5.innerHTML = '100 clicks per second';
@@ -207,7 +220,7 @@ function checkScore()
 			timer5Active = 1;
 			}
 
-		if(score == 700 && timer6Active == 0)
+		if(score == level6 && timer6Active == 0)
 			{
 			button6 = document.createElement('button');
 			button6.innerHTML = '500 clicks per second';
@@ -218,7 +231,7 @@ function checkScore()
 			timer6Active = 1;
 			}
 
-		if(score == 1200 && timer7Active == 0)
+		if(score == level7 && timer7Active == 0)
 			{
 			button7 = document.createElement('button');
 			button7.innerHTML = '1,000 clicks per second';
@@ -229,7 +242,7 @@ function checkScore()
 			timer7Active = 1;
 			}
 
-		if(score == 2000 && timer8Active == 0)
+		if(score == level8 && timer8Active == 0)
 			{
 			button8 = document.createElement('button');
 			button8.innerHTML = '5,000 clicks per second';
@@ -240,7 +253,7 @@ function checkScore()
 			timer8Active = 1;
 			}
 
-		if(score == 3300 && timer9Active == 0)
+		if(score == level9 && timer9Active == 0)
 			{
 			button9 = document.createElement('button');
 			button9.innerHTML = '10,000 clicks per second';
@@ -251,7 +264,7 @@ function checkScore()
 			timer9Active = 1;
 			}
 
-		if(score == 5100 && timer10Active == 0)
+		if(score == level10 && timer10Active == 0)
 			{
 			button10 = document.createElement('button');
 			button10.innerHTML = '50,000 clicks per second';
@@ -262,7 +275,7 @@ function checkScore()
 			timer10Active = 1;
 			}
 
-		if(score == 8500 && timer11Active == 0)
+		if(score == level11 && timer11Active == 0)
 			{
 			button11 = document.createElement('button');
 			button11.innerHTML = '100,000 clicks per second';
@@ -340,7 +353,6 @@ submitEl.addEventListener	(
 		userId = localStorage.getItem("userId") || '';
 		var EnterScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=EnterScore&score=' + score + '&userID=' + userId + '&Username=' + userNameEl.value;
 		apiSend("EnterScore", EnterScore);
-		apiSend('GetLeaderboard',GetLeaderboard);
 		resetGame();		
 	}
 );
@@ -382,6 +394,8 @@ function resetGame() {
 	if (typeof button9 != "undefined") {button9.remove();}
 	if (typeof button10 != "undefined") {button10.remove();}
 	if (typeof button11 != "undefined") {button11.remove();}
+
+	apiSend('GetLeaderboard',GetLeaderboard);
 }
 
 

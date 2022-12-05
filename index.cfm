@@ -7,6 +7,9 @@
 
 	<cfswitch expression="#Action#">
 		<cfcase value="GetLeaderboard">
+
+			<cfobjectcache action = "clear">
+			
 			<cfquery datasource="Bootcamp" name="Data">
 				Select 	Username
 						, Score
