@@ -88,12 +88,12 @@ button {
 #buttonArea {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: auto;
+    /* justify-content: center; */
+    margin: 0 auto;
     margin-top: 2rem;
-    width: 50%;
-    height: 10rem;
-    align-items: center;
+    width: 30%;
+    /* height: 10rem; */
+    /* align-items: center; */
     /* border: 5px solid orange; */
     border-radius: 10px;
 }
@@ -101,13 +101,15 @@ button {
 .storeButton {
     width: 5rem;
     height: 5rem;
-    background-color: blue;
+    background-color: red;
+    box-shadow: 0 0 3px 3px gold;
     color: white;
     text-align: center;
     justify-content: center;
     align-items: center;
     margin: 1rem;
     border-radius: 5px;
+    font-size: .8rem;
 
 }
 
@@ -131,7 +133,10 @@ button {
     justify-content: center;
     margin: auto;
     background-color: lightblue;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    padding: .5rem;
+    border-radius: 3px;
 }
 
 #userName {
@@ -162,9 +167,32 @@ button {
     margin: 2rem auto;
     max-width: 40%;
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
    
 
 
+}
+
+#leaderboard {
+    display: flex;
+    justify-content: center;
+
+}
+
+@media screen and (width: 375px) {
+    h1 {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    #top {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #theModal h2 {
+        font-size: 1.5rem;
+    }
 }
