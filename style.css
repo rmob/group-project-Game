@@ -7,7 +7,7 @@
 
 body {
     margin: 0 auto;
-    background-color: red!important;
+    background-color: gold!important;
 }
 
 #top {
@@ -207,112 +207,277 @@ button {
 
 }
 
-@media screen and (max-width: 375px) {
+
+@media screen and (max-width: 280px) {
     h1 {
-        text-align: center;
-        font-size: 12px;
+        text-align: center!important;
+        font-size: 10px!important;
         
     }
 
     #top {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        width: 75%;
+        font-size: 1.5rem!important;
+        margin-bottom: 1.5rem!important;
+        width: 75%!important;
     }
 
     #theModal h2 {
-        font-size: 1.2rem;
+        font-size: 2rem!important;
     }
 
     #theModal {
-        width: 75%;
+        width: 75%!important;
     }
 
 
     #mainButton {
-        height:10rem;
-        width: 10rem;
-        /* margin-bottom: 1rem; */
-        font-size: 6rem;
+        height:15rem!important;
+        width: 15rem!important;
+        font-size: 6rem!important;
     }
 
     .clickThis {
-        width: 75%;
+        width: 75%!important;
     }
 
     #buttonArea {
-        margin: auto;
-        width: 75%;
+        margin: auto!important;
+        width: 75%!important;
     }
 
     .storeButton {
-        width: 3rem;
-        height: 3rem;
-        font-size: .6rem;
-        margin-bottom: 1rem;
-        margin-left: .5rem;
-        margin-right: .5rem;
+        width: 3rem!important;
+        height: 3rem!important;
+        font-size: .6rem!important;
+        margin-bottom: 1rem!important;
+        margin-left: .5rem!important;
+        margin-right: .5rem!important;
 
     }
 
     #theModal p {
-        font-size: 10px;
+        font-size: 10px!important;
     }
 
 
 
 }
 
-@media screen and (max-width: 414px) {
+
+@media screen and (max-width: 375px) {
     h1 {
-        text-align: center;
-        font-size: 12px;
+        text-align: center!important;
+        font-size: 10px!important;
         
     }
 
     #top {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        width: 75%;
+        font-size: 1.5rem!important;
+        margin-bottom: 1.5rem!important;
+        width: 75%!important;
     }
 
     #theModal h2 {
-        font-size: 1.2rem;
+        font-size: 1rem!important;
     }
 
     #theModal {
-        width: 75%;
+        width: 75%!important;
     }
 
 
     #mainButton {
-        height:10rem;
-        width: 10rem;
-        /* margin-bottom: 1rem; */
-        font-size: 6rem;
+        height:10rem!important;
+        width: 10rem!important;
+        font-size: 6rem!important;
     }
 
     .clickThis {
-        width: 75%;
+        width: 75%!important;
     }
 
     #buttonArea {
-        margin: auto;
-        width: 75%;
+        margin: auto!important;
+        width: 75%!important;
     }
 
     .storeButton {
-        width: 3rem;
-        height: 3rem;
-        font-size: .6rem;
-        margin-bottom: 1rem;
-        margin-left: .5rem;
-        margin-right: .5rem;
+        width: 3rem!important;
+        height: 3rem!important;
+        font-size: .6rem!important;
+        margin-bottom: 1rem!important;
+        margin-left: .5rem!important;
+        margin-right: .5rem!important;
 
     }
 
     #theModal p {
-        font-size: 10px;
+        font-size: 10px!important;
+    }
+
+
+
+}
+
+@media screen and (max-width: 390px) {
+    h1 {
+        text-align: center!important;
+        font-size: 10px!important;
+        
+    }
+
+    #top {
+        font-size: 1.5rem!important;
+        margin-bottom: 1.5rem!important;
+        width: 75%!important;
+    }
+
+    #theModal h2 {
+        font-size: 1rem!important;
+    }
+
+    #theModal {
+        width: 75%!important;
+    }
+
+
+    #mainButton {
+        height:10rem!important;
+        width: 10rem!important;
+        font-size: 6rem!important;
+    }
+
+    .clickThis {
+        width: 75%!important;
+    }
+
+    #buttonArea {
+        margin: auto!important;
+        width: 75%!important;
+    }
+
+    .storeButton {
+        width: 3rem!important;
+        height: 3rem!important;
+        font-size: .6rem!important;
+        margin-bottom: 1rem!important;
+        margin-left: .5rem!important;
+        margin-right: .5rem!important;
+
+    }
+
+    #theModal p {
+        font-size: 10px!important;
+    }
+
+
+
+}
+
+@media screen and (max-width: 393px) {
+    h1 {
+        text-align: center!important;
+        font-size: 10px!important;
+        
+    }
+
+    #top {
+        font-size: 1.5rem!important;
+        margin-bottom: 1.5rem!important;
+        width: 75%!important;
+    }
+
+    #theModal h2 {
+        font-size: 1rem!important;
+    }
+
+    #theModal {
+        width: 75%!important;
+    }
+
+
+    #mainButton {
+        height:10rem!important;
+        width: 10rem!important;
+        font-size: 6rem!important;
+    }
+
+    .clickThis {
+        width: 75%!important;
+    }
+
+    #buttonArea {
+        margin: auto!important;
+        width: 75%!important;
+    }
+
+    .storeButton {
+        width: 3rem!important;
+        height: 3rem!important;
+        font-size: .6rem!important;
+        margin-bottom: 1rem!important;
+        margin-left: .5rem!important;
+        margin-right: .5rem!important;
+
+    }
+
+    #theModal p {
+        font-size: 10px!important;
+    }
+
+
+
+}
+
+@media screen and (max-width: 412px) {
+    h1 {
+        text-align: center!important;
+        font-size: 12px!important;
+        
+    }
+
+    #top {
+        font-size: 2rem!important;
+        margin-bottom: 1.5rem!important;
+        width: 75%!important;
+    }
+
+    #theModal h2 {
+        font-size: 1.2rem!important;
+    }
+
+    #theModal {
+        width: 75%!important;
+    }
+
+
+    #mainButton {
+        height:10rem!important;
+        width: 10rem!important;
+        font-size: 6rem!important;
+    }
+
+    .clickThis {
+        width: 75%!important;
+    }
+
+    #buttonArea {
+        margin: auto!important;
+        width: 75%!important;
+    }
+
+    .storeButton {
+        width: 3rem!important;
+        height: 3rem!important;
+        font-size: .6rem!important;
+        margin-bottom: 1rem!important;
+        margin-left: .5rem!important;
+        margin-right: .5rem!important;
+
+    }
+
+    #theModal p {
+        font-size: 10px!important;
     }
 
 
@@ -321,54 +486,53 @@ button {
 
 @media screen and (max-width: 768px) {
     h1 {
-        text-align: center;
-        font-size: 12px;
+        text-align: center!important;
+        font-size: 12px!important;
         
     }
 
     #top {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        width: 75%;
+        font-size: 2rem!important;
+        margin-bottom: 1.5rem!important;
+        width: 75%!important;
     }
 
     #theModal h2 {
-        font-size: 1.2rem;
+        font-size: 1.2rem!important;
     }
 
     #theModal {
-        width: 75%;
+        width: 75%!important;
     }
 
 
     #mainButton {
-        height:10rem;
-        width: 10rem;
-        /* margin-bottom: 1rem; */
-        font-size: 6rem;
+        height:10rem!important;
+        width: 10rem!important;
+        font-size: 6rem!important;
     }
 
     .clickThis {
-        width: 75%;
+        width: 75%!important;
     }
 
     #buttonArea {
-        margin: auto;
-        width: 75%;
+        margin: auto!important;
+        width: 75%!important;
     }
 
     .storeButton {
-        width: 3rem;
-        height: 3rem;
-        font-size: .6rem;
-        margin-bottom: 1rem;
-        margin-left: .5rem;
-        margin-right: .5rem;
+        width: 3rem!important;
+        height: 3rem!important;
+        font-size: .6rem!important;
+        margin-bottom: 1rem!important;
+        margin-left: .5rem!important;
+        margin-right: .5rem!important;
 
     }
 
     #theModal p {
-        font-size: 10px;
+        font-size: 10px!important;
     }
 
 
@@ -377,54 +541,53 @@ button {
 
 @media screen and (max-width: 820px) {
     h1 {
-        text-align: center;
-        font-size: 12px;
+        text-align: center!important;
+        font-size: 12px!important;
         
     }
 
     #top {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-        width: 75%;
+        font-size: 4rem!important;
+        margin-bottom: 1.5rem!important;
+        width: 75%!important;
     }
 
     #theModal h2 {
-        font-size: 2rem;
+        font-size: 2rem!important;
     }
 
     #theModal {
-        width: 75%;
+        width: 75%!important;
     }
 
 
     #mainButton {
-        height:15rem;
-        width: 15rem;
-        /* margin-bottom: 1rem; */
-        font-size: 6rem;
+        height:15rem!important;
+        width: 15rem!important;
+        font-size: 6rem!important;
     }
 
     .clickThis {
-        width: 75%;
+        width: 75%!important;
     }
 
     #buttonArea {
-        margin: auto;
-        width: 75%;
+        margin: auto!important;
+        width: 75%!important;
     }
 
     .storeButton {
-        width: 3rem;
-        height: 3rem;
-        font-size: .6rem;
-        margin-bottom: 1rem;
-        margin-left: .5rem;
-        margin-right: .5rem;
+        width: 3rem!important;
+        height: 3rem!important;
+        font-size: .6rem!important;
+        margin-bottom: 1rem!important;
+        margin-left: .5rem!important;
+        margin-right: .5rem!important;
 
     }
 
     #theModal p {
-        font-size: 10px;
+        font-size: 10px!important;
     }
 
 
