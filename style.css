@@ -207,10 +207,6 @@ body {
 
 }
 
-<<<<<<< HEAD
-
-@media screen and (max-width: 280px) {
-=======
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -249,8 +245,9 @@ body {
     cursor: pointer;
   }
 
-@media screen and (max-width: 375px) {
->>>>>>> 97287210cb66227e66fa97d9db5fc5ab5489db59
+  /* MEDIA QUERIES */
+
+@media screen and (max-width: 280px) {
     h1 {
         text-align: center!important;
         font-size: 10px!important;
