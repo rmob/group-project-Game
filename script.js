@@ -85,11 +85,6 @@ var level10 = 5100;
 var level11 = 8500;
 
 
-
-countDownEl.textContent = "We will be starting when you first press the button";
-
-
-
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -412,8 +407,6 @@ function resetGame() {
 	timer11Active = 0;
 
 	clearTimers();
-
-	countDownEl.textContent = "We will be starting when you first press the button";
 
 	if (typeof button1 != "undefined") {button1.remove();}
 	if (typeof button2 != "undefined") {button2.remove();}
