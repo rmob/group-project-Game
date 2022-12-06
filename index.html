@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clicky Circle</title>
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
@@ -16,12 +16,14 @@
 
         <!-- Top Of Page -->
     <div id="theModal" class="modal">
-        <div class="modalContent">
+        <div id="myModal" class="modalContent">
             <h2>Welcome to Clicky Circle</h2>
             <p>Click the circle as much as you can</p>
         </div>
     </div> 
+    <button id="myBtn">Click Me To Start</button>
     
+
         <!-- Main Button -->
     <div class="clickThis">
         <button id="mainButton" class="clickBtn"></button>
@@ -47,14 +49,15 @@
 
         <!-- Reset Button  -->
     <div>
-        <button id="reset">RESET</button>
+        <button id="reset" class="success button">RESET</button>
     </div>
     
 
   <section class="results">
-            <!-- countdown -->
-    <div id="countDown"></div>
 
+            <!-- Modal -->
+    <div id="countDown"></div>
+    
             <!-- Personal High Score -->
     <div id="personalHighScore"></div>
 
@@ -66,6 +69,8 @@
     </div>
    </section>
 
+
+   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
   <script src="script.js"></script>
 
 </body>
