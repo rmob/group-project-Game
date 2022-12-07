@@ -6,7 +6,7 @@ var countDownEl = document.getElementById("countDown");
 var personalHighScoreEl = document.getElementById("personalHighScore");
 var submitEl = document.getElementById("submit");
 var userNameEl = document.getElementById("userName");
-var userFormEl = document.getElementById("scoreBoard");
+var scoreBoardEl = document.getElementById("scoreBoard");
 
 var leaderBoardData = '';
 var leaderboard1nameEl = document.getElementById("leaderboard1name");
@@ -132,13 +132,14 @@ function startCountdown()
 						{
 							clearTimers();
 							buttonEL.disabled = true;
+							buttonEL.style.display = 'none';
 							buttonArea.style.display = 'none';
 							countDownEl.textContent = "Congrats! You have gotten a score of " + score + "."; 
 							if(personalHighScore < score)
 							{
 								localStorage.setItem("personalHighScore", score);
 								personalHighScoreEl.textContent = "Personal High Score: " + score;
-								userFormEl.style.display = 'block';
+								scoreBoardEl.style.display = 'block';
 
 								countDownEl.textContent = "Congrats! You have gotten a score of " + score + ". Since you beat your personal high score, enter your name into the Leaderboard.";
 	
@@ -390,8 +391,9 @@ function resetGame() {
 	buttonEL.textContent = score;
 	localStorage.setItem("score", score);
 	buttonEL.disabled = false;
+	buttonEL.style.display = 'block';
 	buttonArea.style.display = 'block';
-	userFormEl.style.display = 'none';
+	scoreBoardEl.style.display = 'none';
 
 	countDown = 30;
 	timer1Active = 0;
