@@ -2,6 +2,8 @@
 
 CLICKY CIRCLE
 
+User Story: As the user I want a game that I can play which will make my finger numb as well as my brain. I want to temporarily escape the prison that is my life.
+
 We set out to accomplish all of the project requirments given to us. 
 
 -Use a CSS framework other than Bootstrap.
