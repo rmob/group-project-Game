@@ -8,6 +8,8 @@ var submitEl = document.getElementById("submit");
 var userNameEl = document.getElementById("userName");
 var scoreBoardEl = document.getElementById("scoreBoard");
 var gameTextEl = document.getElementById("gameText");
+var myBtnEl = document.getElementById("myBtn");
+
 
 var leaderBoardData = '';
 var leaderboard1nameEl = document.getElementById("leaderboard1name");
@@ -124,6 +126,7 @@ function startCountdown()
 			var audio = document.getElementById("audio");
 			audio.play();
 			buttonEL.style.display = 'block';
+			myBtnEl.style.display = 'none';
 			countDownEl.textContent = "You have " + countDown + " seconds left.";
 			countDownEl.style.display = 'block';
 			countDownTimer=setInterval(function()
@@ -403,6 +406,7 @@ function resetGame() {
 	scoreBoardEl.style.display = 'none';
 	gameTextEl.style.display = 'none';
 	countDownEl.style.display = 'none';
+	myBtnEl.style.display = 'block';
 
 
 
