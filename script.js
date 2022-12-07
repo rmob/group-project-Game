@@ -121,6 +121,8 @@ function startCountdown()
 	{
 		if(firstPress == 0)
 		{
+			var audio = document.getElementById("audio");
+			audio.play();
 			countDownTimer=setInterval(function()
 			{
 				{

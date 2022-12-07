@@ -197,7 +197,7 @@ body {
 
 .results {
     margin: 2rem auto;
-    max-width: 30%;
+    max-width: 20%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -215,6 +215,11 @@ body {
 #leaderboard {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
     color: black;
     font-weight: bolder;
     
