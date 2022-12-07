@@ -190,6 +190,7 @@ body {
 #countDown {
     display: flex;
     justify-content: center;
+    text-align: center;
     font-size: 1.5rem;
     width: 20%;
     min-width: 350px;
@@ -197,7 +198,7 @@ body {
     margin-bottom: 1rem;
     /* background-color: rgb(99, 157, 251); */
     /* border: 1px solid white; */
-    color: white; 
+    color: black; 
     border-radius: 5px;
     padding: 1rem;
 
@@ -252,8 +253,12 @@ body {
     margin: 0 auto;
     font-weight: bolder;
     font-size: .8rem;
-    color: white;
-    font-style: italic
+    color: black;
+    font-style: italic;
+    background-color: white;
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 5px;
 }
 
 
