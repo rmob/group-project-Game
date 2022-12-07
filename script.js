@@ -7,6 +7,7 @@ var personalHighScoreEl = document.getElementById("personalHighScore");
 var submitEl = document.getElementById("submit");
 var userNameEl = document.getElementById("userName");
 var scoreBoardEl = document.getElementById("scoreBoard");
+var gameTextEl = document.getElementById("gameText");
 
 var leaderBoardData = '';
 var leaderboard1nameEl = document.getElementById("leaderboard1name");
@@ -144,6 +145,7 @@ function startCountdown()
 								countDownEl.textContent = "Congrats! You have gotten a score of " + score + ". Since you beat your personal high score, enter your name into the Leaderboard.";
 	
 							}
+							gameTextEl.style.display = 'block';
 						}
 
 				}
@@ -394,6 +396,8 @@ function resetGame() {
 	buttonEL.style.display = 'block';
 	buttonArea.style.display = 'block';
 	scoreBoardEl.style.display = 'none';
+	gameTextEl.style.display = 'none';
+
 
 	countDown = 30;
 	timer1Active = 0;
