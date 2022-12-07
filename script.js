@@ -407,6 +407,7 @@ function resetGame() {
 	gameTextEl.style.display = 'none';
 	countDownEl.style.display = 'none';
 	myBtnEl.style.display = 'block';
+	
 
 
 
