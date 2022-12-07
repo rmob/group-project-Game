@@ -21,8 +21,8 @@ body {
 
 #theModal h2 {
     font-size: 2rem;
-    font-style: italic;
-    background-color: gold;
+    /* font-style: italic; */
+    /* background-color: gold; */
 }
 
 .modal {
@@ -159,6 +159,9 @@ body {
     display: flex;
     justify-content: center;
     margin: auto;
+    margin-top: 1rem;
+    border-radius: 5px;
+    color: white;
     /* background-color: lightblue;
     font-size: 1.5rem;
     color: white;
@@ -183,11 +186,18 @@ body {
 }
 
 #countDown {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    min-width: 350px;
+    margin: 0 auto;
     margin-bottom: 1rem;
-    background-color: rgb(163, 163, 232);
+    /* background-color: rgb(99, 157, 251); */
+    border: 1px solid white;
     color: white;
     border-radius: 5px;
     padding: 1rem;
+
 }
 
 #personalHighScore {
@@ -239,6 +249,8 @@ body {
     margin: 0 auto;
     font-weight: bolder;
     font-size: .8rem;
+    color: white;
+    font-style: italic
 }
 
 
@@ -299,6 +311,7 @@ body {
 
     #theModal h2 {
         font-size: 2rem!important;
+        
     }
 
     #theModal {
@@ -596,7 +609,7 @@ body {
 
     #buttonArea {
         margin: auto!important;
-        width: 75%!important;
+        /* width: 30%!important; */
     }
 
     .storeButton {
