@@ -123,6 +123,9 @@ function startCountdown()
 		{
 			var audio = document.getElementById("audio");
 			audio.play();
+			buttonEL.style.display = 'block';
+			countDownEl.textContent = "You have " + countDown + " seconds left.";
+			countDownEl.style.display = 'block';
 			countDownTimer=setInterval(function()
 			{
 				{
@@ -399,6 +402,8 @@ function resetGame() {
 	buttonArea.style.display = 'block';
 	scoreBoardEl.style.display = 'none';
 	gameTextEl.style.display = 'none';
+	countDownEl.style.display = 'none';
+
 
 
 	countDown = 30;
