@@ -203,14 +203,16 @@ function clearTimers()
 function checkScore() 
 	{
 
-		if(score.toString().length >= 1)
+		if(score.toString().length >= 3)
 		{
 			buttonEL.style.width = "18rem";
+			buttonEL.style.height = "18rem";
 		}
 
-		if(score.toString().length >= 2)
+		if(score.toString().length >= 5)
 		{
 			buttonEL.style.width = "21rem";
+			buttonEL.style.height = "21rem";
 		}
 
 
