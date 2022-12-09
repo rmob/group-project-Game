@@ -361,11 +361,11 @@ function apiSend(namedrequest, request) {
 				leaderBoardData = JSON.parse(response.trim());
 
 				leaderboard1nameEl.textContent = leaderBoardData[0]["Username"].trim();
-				leaderboard1scoreEl.textContent = leaderBoardData[0]["Score"];
+				leaderboard1scoreEl.textContent = Intl.NumberFormat('en-US').format( leaderBoardData[0]["Score"])
 				leaderboard2nameEl.textContent = leaderBoardData[1]["Username"].trim();
-				leaderboard2scoreEl.textContent = leaderBoardData[1]["Score"];
+				leaderboard2scoreEl.textContent = Intl.NumberFormat('en-US').format( leaderBoardData[1]["Score"]);
 				leaderboard3nameEl.textContent = leaderBoardData[2]["Username"].trim();
-				leaderboard3scoreEl.textContent = leaderBoardData[2]["Score"];
+				leaderboard3scoreEl.textContent = Intl.NumberFormat('en-US').format( leaderBoardData[2]["Score"]);
 
 				break;
 			case 'GetScore':
