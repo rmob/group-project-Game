@@ -423,6 +423,8 @@ function resetGame() {
 	gameTextEl.style.display = 'none';
 	countDownEl.style.display = 'none';
 	myBtnEl.style.display = 'block';
+	buttonEL.style.width = "15rem";
+	buttonEL.style.height = "15rem";
 	
 
 
