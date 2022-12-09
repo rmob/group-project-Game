@@ -21,7 +21,7 @@ var leaderboard3scoreEl = document.getElementById("leaderboard3score");
 
 
 
-var score = 0;
+var score = 100000;
 
 var userId = localStorage.getItem("userId") || '';
 
@@ -36,7 +36,7 @@ apiSend('GetScore',GetScore);
 var personalHighScore = +localStorage.getItem("personalHighScore") || 0;
 
 var countDownTimer;
-var countDown = 30;
+var countDown = 80;
 
 var firstPress = 0;
 var timer1Active = 0;
@@ -76,16 +76,16 @@ var timer10;
 var timer11;
 
 var level1 = 10;
-var level2 = 25;
-var level3 = 100;
-var level4 = 200;
-var level5 = 400;
-var level6 = 700;
-var level7 = 1200;
-var level8 = 2000;
-var level9 = 3300;
-var level10 = 5100;
-var level11 = 8500;
+var level2 = 100;
+var level3 = 200;
+var level4 = 400;
+var level5 = 800;
+var level6 = 1600;
+var level7 = 3200;
+var level8 = 6400;
+var level9 = 12800;
+var level10 = 25600;
+var level11 = 51200;
 
 
 // Get the modal
@@ -143,14 +143,16 @@ function startCountdown()
 							buttonEL.disabled = true;
 							buttonEL.style.display = 'none';
 							buttonArea.style.display = 'none';
-							countDownEl.textContent = "Congrats! You have gotten a score of " + score + "."; 
+							
+							countDownEl.textContent = "Congrats! You have gotten a score of " + score + ". You did not however beat your high score of " + Intl.NumberFormat('en-US').format(personalHighScore) + ".";
+
 							if(personalHighScore < score)
 							{
 								localStorage.setItem("personalHighScore", score);
-								personalHighScoreEl.textContent = "Personal High Score: " + score;
+								personalHighScoreEl.textContent = "Personal High Score: " + Intl.NumberFormat('en-US').format(score);
 								scoreBoardEl.style.display = 'block';
 
-								countDownEl.textContent = "Congrats! You have gotten a score of " + score + ". Since you beat your personal high score, enter your name into the Leaderboard.";
+								countDownEl.textContent = "Congrats! You have gotten a score of " + Intl.NumberFormat('en-US').format(score) + ". Since you beat your personal high score, enter your name into the Leaderboard.";
 	
 							}
 							gameTextEl.style.display = 'block';
@@ -200,7 +202,20 @@ function clearTimers()
 
 function checkScore() 
 	{
-		buttonEL.textContent = score;
+
+		if(score.toString().length >= 1)
+		{
+			buttonEL.classList.add("bigMainButton1");
+			buttonEL.style.width = "18rem";
+		}
+
+		if(score.toString().length >= 2)
+		{
+			buttonEL.style.width = "21rem";
+		}
+
+
+		buttonEL.textContent = Intl.NumberFormat('en-US').format(score);
 		localStorage.setItem("score", score);
 
 		if(score == level1 && timer1Active == 0)
@@ -411,7 +426,7 @@ function resetGame() {
 
 
 
-	countDown = 30;
+	countDown = 80;
 	timer1Active = 0;
 	timer2Active = 0;
 	timer3Active = 0;
