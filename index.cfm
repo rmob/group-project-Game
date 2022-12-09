@@ -7,36 +7,30 @@
 
 	<cfswitch expression="#Action#">
 		<cfcase value="GetLeaderboard">
+
+			<cfobjectcache action = "clear">
+			
 			<cfquery datasource="Bootcamp" name="Data">
-				Select 	UserID
+				Select 	Username
 						, Score
 				From	Data
 				Order by Score DESC
+				Limit 3
 			</cfquery>
 
-			#SerializeJSON(data)#
+			#trim(SerializeJSON(Data, 'struct'))#
+
 		</cfcase>
-		<cfcase value="EnterScore">
+
+		<cfcase value="CheckID">
 			<cfif isdefined('url.UserID')>
 				<cfset UserID = "#url.UserID#">
 			<cfelse>
 				<cfset UserID = "">
-			</cfif>			
-			<cfif isdefined('url.Score')>
-				<cfset Score = "#url.Score#">
-			<cfelse>
-				No Score given.<cfabort>
-			</cfif>	
-			<cfif isdefined('url.Attributes')>
-				<cfset Attribute = "#url.Attributes#">
-			<cfelse>
-				<cfset Attribute = "">
 			</cfif>
 
 			<cfquery datasource="Bootcamp" name="Data">
 				Select 	UserID
-						, Score
-						, Attribute
 				From	Data
 				Where 	UserID = '#UserID#'
 			</cfquery>
@@ -46,45 +40,66 @@
 
 				<cfquery datasource="Bootcamp">
 					Insert into Data
-					(UserID, Score, Attribute)
+					(UserID)
 					Values
-					('#NewID#', #Score#, '#Attribute#')
+					('#NewID#')
 				</cfquery>
 
-				#NewID#			
+				#trim(NewID)#
 			<cfelse>
-
-				<cfquery datasource="Bootcamp">
-					Update Data
-					Set Score = #Score#
-						, Attribute = '#Attribute#'
-					Where UserID = '#Data.UserID#'
-				</cfquery>
-
 				OK
 			</cfif>
-
-
 		</cfcase>
-		<cfcase value="LoadUser">
-			<cfif isdefined('url.UserID')>
-				<cfset UserID = "#url.UserID#">
-			<cfelse>
-				No UserID given.<cfabort>
-			</cfif>			
+
+
+		<cfcase value="EnterScore">
+			<cfset UserID = "#url.UserID#">
+			<cfset Score = "#url.Score#">
+			<cfset Username = "#url.Username#">
 
 			<cfquery datasource="Bootcamp" name="Data">
 				Select 	UserID
 						, Score
-						, Attribute
+				From	Data
+				Where 	UserID = '#UserID#'
+			</cfquery>
+
+			<cfif Score GT Data.Score>
+
+				<cfif Username is "">
+					<cfset Username = "Annonymous">
+				</cfif>
+
+				<cfquery datasource="Bootcamp">
+					Update Data
+					Set Score = #Score#
+						, Username = "#Username#"
+					Where UserID = '#Data.UserID#'
+				</cfquery>
+			</cfif>
+			OK
+		</cfcase>
+
+
+		<cfcase value="GetScore">
+			<cfset UserID = "#url.UserID#">
+
+			<cfquery datasource="Bootcamp" name="Data">
+				Select 	Score
 				From	Data
 				Where 	UserID = '#UserID#'
 			</cfquery>
 			
-			#SerializeJSON(data)#
+			<cfif Data.Recordcount GT 0>
+				#trim(data.score)#
+			<cfelse>
+				0
+			</cfif>
+
 		</cfcase>
+
 		<cfdefaultcase>
-			Active actions are: LoadUser, EnterScore, GetLeaderboard
+			Active actions are: GetScore, EnterScore, GetLeaderboard, CheckID
 		</cfdefaultcase>
 
 	</cfswitch>

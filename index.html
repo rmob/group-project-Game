@@ -3,50 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicky Box</title>
+    <title>Clicky Circle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body>
          <!-- TITLE -->
-      <h1 class="title" id="top">Clicky Box!</h1>
+      <h1 class="title" id="top">Clicky Circle!</h1>
 
+    <!-- Trigger/Open The Modal -->
+<button id="myBtn">Click Here For Instructions</button>
 
-        <!-- Modal Content -->
-    <div id="theModal" class="modal">
-        <div class="modalContent">
-            <h1>Welcome to Clicky Box</h1>
-            <p>Click the button as much as you can</p>
-        </div>
-    </div> 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div id="theModal" class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Welcome to Clicky Circle</h2>
+    <p>Click the circle as much as you can within 80 seconds. Click the multipliers that pop up and you will get auto clicks<br>The timer will start on your first click</p>
+  </div>
+
+</div>
+
+      <!-- Countdown Timer -->
+      <div id="countDown"></div>
     
         <!-- Main Button -->
     <div class="clickThis">
-        <button id="mainButton" class="clickBtn">25</button>
+        <button id="mainButton" class="clickBtn"></button>
     </div>
 
         <!-- Score Board  -->
-
-    <div> 
-      <button id="submit" class="submitBtn">SUBMIT</button>
-    </div>
-    <div>
-      <input type="text" class="name" id="userName">
-    </div>
-   
-    <div id="score" class="scoreBoard"></div>
-    
+    <section id="scoreBoard">
+        <div>
+            <input type="text" class="userName" id="userName" placeholder="Enter Name
+            ">
+        </div>
+        <div> 
+            <button id="submit" class="submitBtn">SUBMIT</button>
+        </div>
+        
+        <div id="score"></div>
+    </section>
 
         <!-- Pop up buttons -->
-    <div id="buttonArea" class="extraButtons">
-        <button class="buttons btn1">1</button>
-        <button class="buttons btn2">2</button>
-        <button class="buttons btn3">3</button>
-        <button class="buttons btn4">4</button>
-    </div>        
+    <div id="buttonArea" class="extraButtons"> </div>  
+    
+  <section id="gameText" class="results">
+
+            <!-- Personal High Score -->
+    <div id="personalHighScore"></div>
+
+            <!-- Leaderboard -->
+    <div id="leaderboard">
+        <h6>High Scores</h6>
+        <div id="leaderboard1name"></div> - <div id="leaderboard1score"></div>
+        <div id="leaderboard2name"></div> - <div id="leaderboard2score"></div>
+        <div id="leaderboard3name"></div> - <div id="leaderboard3score"></div>
+    </div>
+
+     <!-- Reset Button  -->
+     <div>
+        <button id="reset" class="success button">RESET</button>
+    </div>
+
+   </section>
+
+     <!-- The Final Countdown. for demonstration purposes only. -->
+   <audio id="audio" src="countdown.ogg"></audio>
 
   <script src="script.js"></script>
 
