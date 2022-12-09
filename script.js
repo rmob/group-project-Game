@@ -21,7 +21,7 @@ var leaderboard3scoreEl = document.getElementById("leaderboard3score");
 
 
 
-var score = 100000;
+var score = 0;
 
 var userId = localStorage.getItem("userId") || '';
 
