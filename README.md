@@ -1,4 +1,4 @@
-# group-project-Game
+# group-project-Game: Clicky Circle
 
 CLICKY CIRCLE
 
@@ -32,3 +32,4 @@ When you get to the website you are presented with a large button with a score o
 
 We used HTML, CSS, foundation CSS framework, Javascript, Third Party APIs, figma to accomplish our goals. 
 
+![Screenshot of Clicky Circle Game](Clicky%20Circle%20Screen%20Shot.png)
