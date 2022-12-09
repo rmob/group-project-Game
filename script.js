@@ -205,7 +205,6 @@ function checkScore()
 
 		if(score.toString().length >= 1)
 		{
-			buttonEL.classList.add("bigMainButton1");
 			buttonEL.style.width = "18rem";
 		}
 
