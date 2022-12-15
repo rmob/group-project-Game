@@ -25,13 +25,13 @@ var score = 0;
 
 var userId = localStorage.getItem("userId") || '';
 
-var GetLeaderboard = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=GetLeaderboard';
+var GetLeaderboard = 'http://www.5thwallgaming.com/Bootcamp/Projects/Clicky-Circle/index.cfm?action=GetLeaderboard';
 apiSend('GetLeaderboard',GetLeaderboard);
 
-var CheckID = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=CheckID&userID=' + userId;
+var CheckID = 'http://www.5thwallgaming.com/Bootcamp/Projects/Clicky-Circle/index.cfm?action=CheckID&userID=' + userId;
 apiSend("CheckID", CheckID);
 
-var GetScore = 'http://www.5thwallgaming.com/Bootcamp/index.cfm?action=GetScore&userID=' + userId;
+var GetScore = 'http://www.5thwallgaming.com/Bootcamp/Projects/Clicky-Circle/index.cfm?action=GetScore&userID=' + userId;
 apiSend('GetScore',GetScore);
 var personalHighScore = +localStorage.getItem("personalHighScore") || 0;
 
